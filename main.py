@@ -20,7 +20,18 @@ class PongBall(Widget):
         pass
 
 class PongGame(Widget):
-    pass
+    ball = ObjectProperty(None)
+
+    def update(self, dt):
+        self.ball.move()
+
+        #bounce off top and bottom
+        if (self.ball.y < 0) or (self.ball.top > self.height):
+            self.ball.velocity_y *= -1
+
+        #bounce off left nd right
+        if(self.ball.x < 0) or (self.ball.right > self.width):
+            self.ball.velocity_x *= -1
 
 class PongApp(App):
     def build(self):
