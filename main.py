@@ -67,7 +67,7 @@ class PongApp(App):
         game = PongGame()
         game.serve_ball()
 
-        Clock.schedule_interval(game.update, 1.0/60.0) #scheduling function. causes the update function of the fame object to be called 60 times per second
+        Clock.schedule_interval(game.update, 1.0/90.0) #scheduling function. causes the update function of the fame object to be called 60 times per second
         return game
 if __name__ == '__main__':
     PongApp().run()
