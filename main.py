@@ -15,12 +15,18 @@ class PongBall(Widget):
     def move(self):
         self.pos = Vector(*self.velocity) + self.pos
 
+    def update(self, dt):
+        #call ball.move and other stuff
+        pass
+
 class PongGame(Widget):
     pass
 
 class PongApp(App):
     def build(self):
-        return PongGame()
+        game = PongGame()
 
+        Clock.schedule_interval(game.update, 1.0/60.0) #scheduling function. causes the update function of the fame object to be called 60 times per second
+        return game
 if __name__ == '__main__':
     PongApp().run()
